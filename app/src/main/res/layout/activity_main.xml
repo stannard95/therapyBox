@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:background="@drawable/Background">
+
+    <ImageButton
+        android:layout_width="193dp"
+        android:layout_height="47dp"
+        android:id="@+id/loginButton"
+        android:background="@drawable/Login_button"
+        android:layout_gravity="center"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/usernameEditText"
+        android:layout_marginBottom="64dp"
+        android:hint="Enter username"
+        android:textColorHint="#FFFFFF"
+        android:layout_above="@+id/loginButton"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/passwordEditText"
+        android:hint="Enter password"
+        android:textColorHint="#FFFFFF"
+        android:layout_alignTop="@+id/usernameEditText"
+        android:layout_alignParentEnd="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="New to Hackathon?"
+        android:id="@+id/signupTextView"
+        android:layout_marginBottom="44dp"
+        android:textColor="#FFFFFF"
+        android:textSize="22dp"
+        android:layout_alignParentBottom="true"
+        android:layout_toStartOf="@+id/passwordEditText" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text=" Sign up"
+        android:id="@+id/signupLinktextView"
+        android:textColor="@android:color/holo_orange_light"
+        android:textSize="22dp"
+        android:layout_alignTop="@+id/signupTextView"
+        android:layout_alignStart="@+id/passwordEditText" />
+</RelativeLayout>

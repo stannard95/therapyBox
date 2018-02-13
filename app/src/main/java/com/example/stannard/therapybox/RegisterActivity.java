@@ -1,6 +1,5 @@
 package com.example.stannard.therapybox;
 
-import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -10,28 +9,27 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
-public class MainActivity extends AppCompatActivity {
+public class RegisterActivity extends AppCompatActivity {
 
-    private ImageButton loginButton;
-    private EditText usernameEditText, passwordEditText;
-    private TextView signupTextView;
+    private ImageButton registerButton;
+    private EditText usernameEditText, passwordEditText, confPasswordEditText, emailEditText;
+    private TextView addPictureTextView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_signup);
 
-        loginButton = (ImageButton) findViewById(R.id.loginButton);
+        registerButton = (ImageButton) findViewById(R.id.registerButton);
         usernameEditText = (EditText) findViewById(R.id.usernameEditText);
         passwordEditText = (EditText) findViewById(R.id.passwordEditText);
-        signupTextView = (TextView) findViewById(R.id.signupLinktextView);
+        confPasswordEditText = (EditText) findViewById(R.id.confPasswordEditText);
+        emailEditText = (EditText) findViewById(R.id.emailEditText);
+        addPictureTextView = (TextView) findViewById(R.id.addPictureLinkTextView);
 
-        loginButton.setOnClickListener(new View.OnClickListener() {
+        registerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 System.out.print("Click");
-                Intent i = new Intent(v.getContext(), RegisterActivity.class);
-                startActivity(i);
-
             }
         });
 

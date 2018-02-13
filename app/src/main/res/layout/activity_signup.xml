@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background">
+
+    <ImageButton
+        android:layout_width="197dp"
+        android:layout_height="47dp"
+        android:id="@+id/registerButton"
+        android:layout_marginBottom="44dp"
+        android:background="@drawable/register_button"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/usernameEditText"
+        android:hint="username"
+        android:textColorHint="#FFFFFF"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="46dp"
+        android:text="username"
+        android:textColor="#FFFFFF" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/passwordEditText"
+        android:hint="password"
+        android:textColorHint="#FFFFFF"
+        android:textColor="#FFFFFF"
+    android:layout_below="@+id/usernameEditText"
+        android:layout_alignEnd="@+id/usernameEditText"
+        android:layout_marginTop="54dp"
+        android:text="password" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/confPasswordEditText"
+        android:hint="Enter password"
+        android:textColorHint="#FFFFFF"
+        android:textColor="#FFFFFF"
+        android:layout_alignBottom="@+id/passwordEditText"
+        android:layout_alignParentEnd="true"
+        android:text="confirm password" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/emailEditText"
+        android:hint="email"
+        android:textColorHint="#FFFFFF"
+        android:textColor="#FFFFFF"
+        android:layout_alignTop="@+id/usernameEditText"
+        android:layout_alignStart="@+id/confPasswordEditText"
+        android:text="email"
+        android:layout_alignParentEnd="true" />
+
+    <ImageButton
+        android:layout_width="250dp"
+        android:layout_height="150dp"
+        android:id="@+id/userImageButton"
+        android:background="@drawable/add_picture"
+        android:layout_below="@+id/passwordEditText"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="42dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Add picture"
+        android:id="@+id/addPictureLinkTextView"
+        android:textColor="@color/abc_primary_text_disable_only_material_dark"
+        android:layout_alignTop="@+id/userImageButton"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="62dp" />
+</RelativeLayout>

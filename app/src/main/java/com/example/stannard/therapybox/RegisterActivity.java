@@ -8,6 +8,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class RegisterActivity extends AppCompatActivity {
 
@@ -29,9 +30,19 @@ public class RegisterActivity extends AppCompatActivity {
         registerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                System.out.print("Click");
+                makeToast("clicked");
             }
         });
 
+        addPictureTextView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                makeToast("clicked");
+            }
+        });
+    }
+
+    public void makeToast(String message) {
+        Toast.makeText(RegisterActivity.this, message, Toast.LENGTH_LONG).show();
     }
 }

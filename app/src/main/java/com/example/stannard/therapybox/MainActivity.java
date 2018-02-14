@@ -25,6 +25,14 @@ public class MainActivity extends AppCompatActivity {
         passwordEditText = (EditText) findViewById(R.id.passwordEditText);
         signupTextView = (TextView) findViewById(R.id.signupLinktextView);
 
+        loginButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                System.out.print("Click");
+                Intent i = new Intent(v.getContext(), PortalActivity.class);
+                startActivity(i);
+            }
+        });
         signupTextView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

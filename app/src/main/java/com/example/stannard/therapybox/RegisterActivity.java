@@ -50,9 +50,7 @@ public class RegisterActivity extends AppCompatActivity {
 
                 if (checkUserEntry()) {
                     User user = getNewUser();
-                }
-                else {
-                    makeToast("Invalid user information!");
+                    makeToast(user.toString());
                 }
             }
         });
@@ -90,9 +88,9 @@ public class RegisterActivity extends AppCompatActivity {
     }
 
     public User getNewUser() {
-        String username = usernameEditText.toString();
-        String password = passwordEditText.toString();
-        String email = emailEditText.toString();
+        String username = usernameEditText.getText().toString();
+        String password = passwordEditText.getText().toString();
+        String email = emailEditText.getText().toString();
         Bitmap bitmap = ((BitmapDrawable) pictureImageView.getDrawable()).getBitmap();
 
         User user = new User(username, password, email, bitmap);
@@ -101,13 +99,24 @@ public class RegisterActivity extends AppCompatActivity {
 
     public boolean checkUserEntry() {
         boolean result = false;
-        if (usernameEditText.toString() != "" && emailEditText.toString() != "" &&
-                 passwordEditText.toString() != "" && confPasswordEditText.toString() != "") {
+        if (usernameEditText.getText().toString() != "" && emailEditText.getText().toString() != "" &&
+                 passwordEditText.getText().toString() != "" && confPasswordEditText.getText().toString() != "") {
 
-            if (passwordEditText.toString().equals(confPasswordEditText.toString()) &&
-             emailEditText.toString().contains("@")) {
-                result = true;
+            if (passwordEditText.getText().toString().equals(confPasswordEditText.getText().toString())) {
+                if (emailEditText.getText().toString().contains("@")) {
+                    result = true;
+                }
+                else {
+                    makeToast("Invalid email address");
+                }
             }
+            else {
+                makeToast("Passwords do not match");
+                System.out.println(passwordEditText.getText().toString() + ", " + confPasswordEditText.getText().toString());
+            }
+        }
+        else {
+            makeToast("Invalid user info");
         }
         return result;
     }

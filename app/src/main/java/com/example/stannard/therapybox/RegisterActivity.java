@@ -47,7 +47,13 @@ public class RegisterActivity extends AppCompatActivity {
         registerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                makeToast("clicked");
+
+                if (checkUserEntry()) {
+                    User user = getNewUser();
+                }
+                else {
+                    makeToast("Invalid user information!");
+                }
             }
         });
 
@@ -55,10 +61,8 @@ public class RegisterActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent();
-// Show only images, no videos or anything else
                 intent.setType("image/*");
                 intent.setAction(Intent.ACTION_GET_CONTENT);
-// Always show the chooser (if there are multiple options available)
                 startActivityForResult(Intent.createChooser(intent, "Select Picture"), PICK_IMAGE_REQUEST);
             }
         });
@@ -69,9 +73,7 @@ public class RegisterActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
 
         if (requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK && data != null && data.getData() != null) {
-
             Uri uri = data.getData();
-
             try {
                 Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), uri);
                 // Log.d(TAG, String.valueOf(bitmap));
@@ -83,6 +85,30 @@ public class RegisterActivity extends AppCompatActivity {
     }
 
     public void makeToast(String message) {
-        Toast.makeText(RegisterActivity.this, message, Toast.LENGTH_LONG).show();
+        Toast.makeText(getApplicationContext(), message,
+                Toast.LENGTH_SHORT).show();
+    }
+
+    public User getNewUser() {
+        String username = usernameEditText.toString();
+        String password = passwordEditText.toString();
+        String email = emailEditText.toString();
+        Bitmap bitmap = ((BitmapDrawable) pictureImageView.getDrawable()).getBitmap();
+
+        User user = new User(username, password, email, bitmap);
+        return user;
+    }
+
+    public boolean checkUserEntry() {
+        boolean result = false;
+        if (usernameEditText.toString() != "" && emailEditText.toString() != "" &&
+                 passwordEditText.toString() != "" && confPasswordEditText.toString() != "") {
+
+            if (passwordEditText.toString().equals(confPasswordEditText.toString()) &&
+             emailEditText.toString().contains("@")) {
+                result = true;
+            }
+        }
+        return result;
     }
 }
